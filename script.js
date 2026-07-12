@@ -2,7 +2,7 @@ const params = new URLSearchParams(window.location.search);
 
 // Data e hora em que a live termina.
 // Se não passar pela URL, usa esta data como padrão.
-const endParam = params.get("end") || "2026-07-22T10:00:00";
+const endParam = params.get("end") || "2026-07-19T15:00:00";
 
 const fim = new Date(endParam);
 
