@@ -3,7 +3,8 @@ const params = new URLSearchParams(window.location.search);
 // Data e hora em que a live termina
 const endParam = params.get("end") || "2026-07-19T15:00:00";
 
-const fim = new Date(endParam);
+console.log("Agora:", new Date());
+const fim = new Date("2099-01-01T00:00:00");
 
 function atualizar(){
 
