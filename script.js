@@ -4,7 +4,7 @@ const params = new URLSearchParams(window.location.search);
 const endParam = params.get("end") || "2026-07-19T15:00:00";
 
 console.log("Agora:", new Date());
-const fim = new Date("2099-01-01T00:00:00");
+const fim = new Date(params.get("end") || "2026-07-19T15:00:00");
 
 function atualizar(){
 
