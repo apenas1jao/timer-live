@@ -1,28 +1,21 @@
-const params = new URLSearchParams(window.location.search);
-
-// Data e hora em que a live termina.
-// Se não passar pela URL, usa esta data como padrão.
-const endParam = params.get("end") || "2026-07-19T15:00:00";
-
-const fim = new Date(endParam);
+// Data final da live
+const fim = new Date("2026-07-19T15:00:00");
 
 function atualizar() {
     const agora = new Date();
 
-    let segundos = Math.floor((fim - agora) / 1000);
+    let diferenca = fim - agora;
 
-    if (segundos < 0) {
-        segundos = 0;
+    if (diferenca < 0) {
+        diferenca = 0;
     }
 
-    const horas = Math.floor(segundos / 3600);
-    const minutos = Math.floor((segundos % 3600) / 60);
-    const seg = segundos % 60;
+    const horas = Math.floor(diferenca / 1000 / 60 / 60);
+    const minutos = Math.floor((diferenca / 1000 / 60) % 60);
+    const segundos = Math.floor((diferenca / 1000) % 60);
 
     document.getElementById("timer").textContent =
-        String(horas).padStart(3, "0") + ":" +
-        String(minutos).padStart(2, "0") + ":" +
-        String(seg).padStart(2, "0");
+        `${String(horas).padStart(3, "0")}:${String(minutos).padStart(2, "0")}:${String(segundos).padStart(2, "0")}`;
 }
 
 atualizar();
